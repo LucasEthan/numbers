@@ -2,11 +2,10 @@
 
 require "prime"
 
-# Asks user for a integer
-print "Enter an integer: "
-integer = Integer(gets, exception: false)
+begin
+  print "Enter an integer: "
+  integer = Integer(gets)
 
-if integer
   if integer.positive? 
     puts "#{integer} is a positive number"
   elsif integer.negative?
@@ -26,9 +25,8 @@ if integer
   elsif integer.zero? || integer == 1
     puts "#{integer} is neither prime nor composite"
   else
-    puts "#{integer} is a composite number"
+    puts "#{integer} is a composite number"  
   end
-else
-  puts "Invalid Input"
+rescue ArgumentError => e
+  puts "You have entered an invalid input"
 end
-
