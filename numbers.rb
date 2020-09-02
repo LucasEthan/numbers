@@ -6,39 +6,24 @@ require "prime"
 print "Enter a integer: "
 integer = gets.to_i
 
-# If integer is negative
 if integer.positive? 
   puts "#{integer} is a positive number"
 elsif integer.negative?
-
-# If integer is positive
   puts "#{integer} is a negative number" 
 else
-
-  # if the integer is 0
   puts "#{integer} is neither positive or negative"
 end
 
-# If integer is odd
-if
-  integer.odd? == true
+if integer.odd?
   puts "#{integer} is an odd number"
+else
+  puts "#{integer} is an even number"
 end
 
-# If integer is even
-if
-  integer.even? 
-  puts "#{integer} is an even number" unless integer == 0
-end
-
-# If integer is prime
-if
-  integer.abs.prime? == true
+if integer.abs.prime?
   puts "#{integer} is a prime number"
-end
-
-# If integer is composite
-if 
-  integer.abs.prime? == false 
-  puts "#{integer} is a composite number" unless integer == 1 
+elsif integer.zero? || integer == 1
+  puts "#{integer} is neither prime nor composite"
+else
+  puts "#{integer} is a composite number"
 end
